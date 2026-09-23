@@ -414,6 +414,408 @@
 </script>
 ```
 
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Biebers 💜</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --azul: #87CEFA;
+            --azul-escuro: #2b5b84;
+            --fundo: #eef8ff;
+            --branco: #ffffff;
+            --rosa: #ff7eb3;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eaf7ff, #f8efff);
+            color: var(--azul-escuro);
+            transition: 0.3s;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background: linear-gradient(135deg, #6ec6ff, #b388ff);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* MENU */
+        nav {
+            background: white;
+            padding: 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            color: var(--azul-escuro);
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 12px;
+        }
+
+        nav a:hover {
+            color: #9b59b6;
+        }
+
+        /* CONTEÚDO */
+        main {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 0 16px;
+        }
+
+        .post {
+            background-color: var(--branco);
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(43,91,132,0.12);
+            margin-bottom: 25px;
+        }
+
+        .post h2 {
+            color: #6c5ce7;
+            margin-bottom: 8px;
+        }
+
+        .artigo-autor {
+            font-style: italic;
+            font-size: 14px;
+            color: #777;
+            margin: 8px 0 15px;
+        }
+
+        .post p {
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .post-imagem {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        /* REAÇÕES */
+        .botoes-reacao {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            cursor: pointer;
+            border: 2px solid #87CEFA;
+            background-color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            color: var(--azul-escuro);
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #e6f7ff;
+            transform: scale(1.05);
+        }
+
+        /* CURIOSIDADES */
+        .curiosidades {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .curiosidade {
+            background: linear-gradient(135deg, #e3f5ff, #f1e8ff);
+            padding: 18px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .curiosidade span {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .curiosidade h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .curiosidade p {
+            font-size: 14px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: #2b5b84;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* MODO ESCURO */
+        body.escuro {
+            background: #151522;
+            color: #eee;
+        }
+
+        body.escuro nav {
+            background: #20202e;
+        }
+
+        body.escuro nav a {
+            color: #eee;
+        }
+
+        body.escuro .post {
+            background: #242438;
+        }
+
+        body.escuro .artigo-autor {
+            color: #bbb;
+        }
+
+        body.escuro .curiosidade {
+            background: #303049;
+        }
+
+        body.escuro button {
+            background: #303049;
+            color: white;
+        }
+
+        .modo-escuro {
+            margin-top: 12px;
+            border-color: white;
+            color: white;
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* CELULAR */
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 14px;
+            }
+
+            .curiosidades {
+                grid-template-columns: 1fr;
+            }
+
+            .post {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="inicio">
+    <h1>💜 Club Biebers 💜</h1>
+
+    <p>
+        Um cantinho especial para compartilhar fatos,
+        curiosidades e momentos da carreira de Justin Bieber.
+    </p>
+
+    <button class="modo-escuro" onclick="alternarModo()">
+        🌙 Modo escuro
+    </button>
+</header>
+
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#post">Post</a>
+    <a href="#curiosidades">Curiosidades</a>
+</nav>
+
+<main>
+
+    <!-- PRIMEIRO POST -->
+    <article class="post" id="post">
+
+        <h2>✨ Meu primeiro post</h2>
+
+        <p class="artigo-autor">
+            Por: Maria • 14 de setembro de 2026
+        </p>
+
+        <p>
+            Boas-vindas ao meu novo blog! 💜
+            Aqui vou compartilhar informações, curiosidades
+            e momentos marcantes da carreira de Justin Bieber.
+        </p>
+
+        <p>
+            Justin Bieber começou sua carreira ainda muito jovem
+            e se tornou um dos artistas pop mais conhecidos
+            mundialmente. Sua trajetória é cheia de músicas,
+            shows e momentos marcantes para os fãs.
+        </p>
+
+        <img
+            class="post-imagem"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/da/Justin_Bieber_in_2015.jpg"
+            alt="Justin Bieber em uma apresentação"
+        >
+
+        <div class="botoes-reacao">
+
+            <button onclick="reagir('coracao')">
+                ❤️ <span id="coracao">0</span>
+            </button>
+
+            <button onclick="reagir('curtida')">
+                👍 <span id="curtida">0</span>
+            </button>
+
+        </div>
+
+    </article>
+
+
+    <!-- CURIOSIDADES -->
+    <section class="post" id="curiosidades">
+
+        <h2>🌟 Curiosidades sobre Justin Bieber</h2>
+
+        <div class="curiosidades">
+
+            <div class="curiosidade">
+                <span>🎤</span>
+                <h3>Carreira musical</h3>
+                <p>
+                    Justin ficou conhecido mundialmente
+                    ainda muito jovem através da música.
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <span>🎵</span>
+                <h3>Grandes sucessos</h3>
+                <p>
+                    Entre seus sucessos estão músicas como
+                    "Baby", "Sorry" e "Love Yourself".
+                </p>
+            </div>
+
+            <div class="curiosidade">
+                <span>💜</span>
+                <h3>Fãs</h3>
+                <p>
+                    Seus fãs ficaram conhecidos como
+                    Beliebers e acompanham sua carreira
+                    há muitos anos.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SEGUNDO POST -->
+    <article class="post">
+
+        <h2>🎶 Por que gosto do Justin?</h2>
+
+        <p class="artigo-autor">
+            Por: Maria
+        </p>
+
+        <p>
+            Eu gosto do Justin Bieber porque suas músicas
+            fizeram parte de diferentes momentos da minha vida.
+            Além disso, acho interessante acompanhar sua
+            evolução como artista ao longo dos anos.
+        </p>
+
+        <p>
+            Este blog será meu espaço para registrar
+            curiosidades e momentos especiais relacionados
+            à sua carreira. 💜
+        </p>
+
+    </article>
+
+</main>
+
+<footer>
+    <p>💜 Club Biebers</p>
+    <p>Feito com carinho por Maria ✨</p>
+</footer>
+
+
+<script>
+
+    // Sistema de reações
+    function reagir(tipo) {
+        const elemento = document.getElementById(tipo);
+        let numero = Number(elemento.textContent);
+        numero++;
+        elemento.textContent = numero;
+    }
+
+
+    // Modo escuro
+    function alternarModo() {
+        document.body.classList.toggle("escuro");
+        const botao = document.querySelector(".modo-escuro");
+
+        if (document.body.classList.contains("escuro")) {
+            botao.textContent = "☀️ Modo claro";
+        } else {
+            botao.textContent = "🌙 Modo escuro";
+        }
+    }
+
+</script>
+
+</body>
+</html>
 </body>
 </html>
 
